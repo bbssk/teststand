@@ -10,9 +10,23 @@
           "instance": "teststand-db",
           "key": "teststand-db-key"
         },
-        "kind": "hana-cloud",
+        "kind": "hana",
         "vcap": {
           "name": "db"
+        }
+      },
+      "auth": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "73a11e94trial",
+          "space": "dev",
+          "instance": "teststand-auth",
+          "key": "teststand-auth-key"
+        },
+        "kind": "xsuaa-auth",
+        "vcap": {
+          "name": "auth"
         }
       }
     }

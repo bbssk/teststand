@@ -1,4 +1,6 @@
 {
+  "xsappname": "teststand",
+  "tenant-mode": "dedicated",
   "scopes": [
     {
       "name": "$XSAPPNAME.Admin",
@@ -15,5 +17,16 @@
       ],
       "attribute-references": []
     }
-  ]
+  ],
+  "oauth2-configuration": {
+    "credential-types": [
+      "binding-secret",
+      "x509"
+    ],
+    "redirect-uris": [
+      "https://*.cfapps.us10-001.hana.ondemand.com/login/callback",
+      "http://localhost:5000/login/callback",
+      "https://*.us10.applicationstudio.cloud.sap/login/callback"
+    ]
+  }
 }
