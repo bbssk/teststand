@@ -2,8 +2,8 @@ using app.interactions from '../db/interactions';
 using {sap} from '@sap/cds-common-content';
 
 service CatalogService {
-
-@requires           : 'authenticated-user'
+@requires: 'Admin'
+//@requires           : 'authenticated-user'
 @cds.redirection.target
 @odata.draft.enabled: true
 entity Interactions_Header as projection on interactions.Headers;
