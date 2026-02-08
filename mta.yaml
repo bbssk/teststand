@@ -36,7 +36,7 @@ modules:
       - name: teststand-db
   - name: teststand
     type: approuter.nodejs
-    path: app/router
+    path: app
     parameters:
       keep-existing-routes: true
       disk-quota: 256M
@@ -49,12 +49,6 @@ modules:
           url: ~{srv-url}
           forwardAuthToken: true
       - name: teststand-auth
-    provides:
-      - name: app-api
-        properties:
-          app-protocol: ${protocol}
-          app-uri: ${default-uri}
-
 resources:
   - name: teststand-auth
     type: org.cloudfoundry.managed-service
@@ -65,14 +59,6 @@ resources:
       config:
         xsappname: teststand-${org}-${space}
         tenant-mode: dedicated
-        oauth2-configuration:
-          credential-types:
-            - "binding-secret"
-            - "x509"
-          redirect-uris:
-            - https://*~{app-api/app-uri}/**
-    requires:
-      - name: app-api
   - name: teststand-db
     type: com.sap.xs.hdi-container
     parameters:
